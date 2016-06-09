@@ -1,4 +1,4 @@
 node_modules/
 .idea
 *.log
-webportal/bower-components
+web-portal/bower_components

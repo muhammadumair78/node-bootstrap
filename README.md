@@ -1,2 +1,2 @@
-# Sprite-Payment-OAuth-JWT
-Sample Showing how  Sprite Payment APIs are intergrated with node.js and Use jsonwebtoken
+# MEAN Bootstrap Application With Users Module
+This is a simple bootstrap application to kickstart MEAN Application. Including a users module.
