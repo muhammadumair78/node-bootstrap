@@ -1,0 +1,35 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<form ng-submit="vm.saveUser()" name="user-form">
+					<div class="form-group">
+						<label for="name">Name</label>
+						<input type="text" class="form-control" id="name" placeholder="Name" ng-model="vm.user.name">
+					</div>
+					<div class="form-group">
+						<label for="about">About</label>
+						<input type="text" class="form-control" id="about" placeholder="About" ng-model="vm.user.about">
+					</div>
+					<div class="form-group">
+						<label for="emailAddress">Email Address</label>
+						<input type="email" class="form-control" id="emailAddress" placeholder="Email Address" ng-model="vm.user.emailAddress">
+					</div>
+					<div class="form-group">
+						<label for="password">Password</label>
+						<input type="text" class="form-control" id="password" placeholder="Password" ng-model="vm.user.password">
+					</div>
+					<div class="form-group">
+						<label for="phoneNumber">Phone Number</label>
+						<input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number" ng-model="vm.user.phoneNumber">
+					</div>
+					<div class="form-group">
+						<label for="username">Username</label>
+						<input type="text" class="form-control" id="username" placeholder="Username" ng-model="vm.user.username">
+					</div>
+					<button type="submit" class="btn btn-default">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

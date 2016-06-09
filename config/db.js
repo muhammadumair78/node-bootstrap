@@ -3,7 +3,6 @@
 module.exports = function(db){
   db.connect('mongodb://localhost/super-app');
 
-
   db.connection.on('connected', function () {
     console.log('Mongoose default connection open to ');
   });

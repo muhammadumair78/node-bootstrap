@@ -1,0 +1,38 @@
+<div id="page-content-wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="pull-right">
+					<a ui-sref="shell.userForm">Create new user.</a>
+				</div>
+				<h1>Users List:</h1>
+				<table class="table table-bordered">
+					<tr>
+						<th>Name</th>
+						<th>About</th>
+						<th>Email</th>
+						<th>Password</th>
+						<th>Phone</th>
+						<th>User Name</th>
+						<th>Actions</th>
+					</tr>
+					<tbody>
+					<tr ng-repeat="user in vm.users">
+						<td ng-bind="user.name"></td>
+						<td ng-bind="user.about"></td>
+						<td ng-bind="user.emailAddress"></td>
+						<td ng-bind="user.password"></td>
+						<td ng-bind="user.phoneNumber"></td>
+						<td ng-bind="user.username"></td>
+						<td>
+							<a ui-sref="shell.userForm({id: user._id})">Edit</a>
+							<a ui-sref="shell.userDetail({id: user._id})">Details</a>
+							<a href="javascript:void(0);" ng-click="vm.deleteUser(user._id)">Delete</a>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
