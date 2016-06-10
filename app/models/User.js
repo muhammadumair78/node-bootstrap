@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = function (app, db) {
-    var _Schema = db.Schema,
-        uniqueValidator = require('mongoose-unique-validator');
+    var _Schema = db.Schema;
+    var uniqueValidator = require('mongoose-unique-validator');
 
     var _UserSchema = new _Schema({
             name: {type: String},

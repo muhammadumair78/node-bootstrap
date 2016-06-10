@@ -39,7 +39,8 @@ module.exports = function (app, q, jwt) {
                         deferred.resolve({
                             success: true,
                             message: 'Login Successfull!',
-                            token: token
+                            token: token,
+                            user: userObject
                         });
                     }
                 }

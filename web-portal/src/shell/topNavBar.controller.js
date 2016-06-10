@@ -15,7 +15,7 @@
         vm.logout = logout;
 
         function logout(){
-            store.remove('access_token');
+            store.remove('user');
             Restangular.setDefaultHeaders();
             $state.go('login');
         }

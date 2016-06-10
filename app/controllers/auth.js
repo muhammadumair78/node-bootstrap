@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function (app, q, jwt) {
-    var User = app.db.User;
+    //var User = app.db.User;
 
     app.controllers.auth = {
         login: _login,
@@ -21,13 +21,14 @@ module.exports = function (app, q, jwt) {
     function _checkToken(req, res, next) {
 
         // check header or url parameters or post parameters for token
-        var token = req.body.token || req.query.token || req.headers['x-access-token'];
+        var access_token = req.body.token || req.query.token || req.headers['x-access-token'];
+        var access_email = req.headers['x-email-address'];
 
         // decode token
-        if (token) {
+        if (access_token && access_email) {
 
             // verifies secret and checks exp
-            jwt.verify(token, app.tokenSecret, function(err, decoded) {
+            jwt.verify(access_token, app.tokenSecret, function(err, decoded) {
                 if (err) {
                     return res.status(401).send({
                         success: false,
@@ -35,15 +36,19 @@ module.exports = function (app, q, jwt) {
                     });
                 } else {
                     // if everything is good, save to request for use in other routes
-                    req.decoded = decoded;
-                    next();
+                    if(access_email === decoded.email){
+                        req.decoded = decoded;
+                        next();
+                    } else {
+                        return res.status(401).send({
+                            success: false,
+                            message: 'User email and token email do not match.'
+                        });
+                    }
                 }
             });
 
         } else {
-
-            // if there is no token
-            // return an error
             return res.status(401).send({
                 success: false,
                 message: 'No token provided.'

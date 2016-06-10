@@ -16,7 +16,10 @@
 
         function login(user){
             authFactory.login(user).then(function(data){
-                store.set('access_token', data.token);
+                store.set('user', {
+                    email_address: data.user.emailAddress,
+                    access_token: data.token
+                });
                 Restangular.setDefaultHeaders({'x-access-token': data.token});
                 $state.go('shell.users');
             });

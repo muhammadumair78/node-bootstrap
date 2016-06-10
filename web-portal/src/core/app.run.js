@@ -14,12 +14,19 @@
 
         Restangular.addFullRequestInterceptor(function (element, operation, route, url, headers, params, httpConfig){
             $rootScope.siteLoader = true;
+            var headerProperties = {};
+            if(store.get('user')){
+                headerProperties = {
+                    'x-access-token': store.get('user').access_token,
+                    'x-email-address': store.get('user').email_address
+                }
+            }
             return {
                 element: element,
                 operation : operation,
                 route : route,
                 url : url,
-                headers: _.extend(headers, {'x-access-token': store.get('access_token')}),
+                headers: _.extend(headers, headerProperties),
                 params: params,
                 httpConfig: httpConfig
             };
@@ -33,7 +40,7 @@
         Restangular.setErrorInterceptor(function (response, deferred, responseHandler) {
             toast.dismiss();
             if (response.status === httpStatus.UNAUTHORIZED) {
-                store.remove('access_token');
+                store.remove('user');
                 toast.error(toastMessages.sessionExpired);
                 $state.go('login');
             } else if (response.status === httpStatus.NOT_FOUND) {
