@@ -2,9 +2,11 @@
 
 module.exports = function(app, router) {
 
-	//////*Route*////////////////////// Welcome
+	//////*Route*////////////////////// Auth
 	router.route('/login')
 		.post(app.controllers.auth.login);
+	router.route('/register')
+		.post(app.controllers.auth.register);
 
 	////// Check if user provided token or not
 	////// Following routes will be disabled if user didnt provided token.

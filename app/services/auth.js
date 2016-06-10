@@ -3,8 +3,36 @@
 module.exports = function (app, q, jwt) {
     var User = app.db.User;
     app.services.auth = {
-        login: _login
+        login: _login,
+        register: _register
     };
+
+    function _register(user) {
+        var deferred = q.defer();
+
+        var newUser = new User();
+        newUser.name = user.name;
+        newUser.about = user.about;
+        newUser.phoneNumber = user.phoneNumber;
+        newUser.username = user.username;
+        newUser.password = user.password;
+        newUser.emailAddress = user.emailAddress;
+
+        newUser.save(function (error) {
+            if (error) {
+                deferred.reject({
+                    message: 'Error in Creating new USER.',
+                    error: error
+                });
+            } else {
+                deferred.resolve({
+                    message: 'Successfully Created USER'
+                });
+            }
+        });
+
+        return deferred.promise;
+    }
 
     function _login(user) {
         var deferred = q.defer();

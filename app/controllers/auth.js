@@ -5,11 +5,22 @@ module.exports = function (app, q, jwt) {
 
     app.controllers.auth = {
         login: _login,
+        register: _register,
         checkToken: _checkToken
     };
 
     function _login(req, res) {
         app.services.auth.login(req.body)
+            .then(function (response) {
+                res.send(response)
+            })
+            .catch(function (error) {
+                res.send(error)
+            })
+    }
+
+    function _register(req, res) {
+        app.services.auth.register(req.body)
             .then(function (response) {
                 res.send(response)
             })
