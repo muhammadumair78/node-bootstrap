@@ -16,6 +16,12 @@
                 title: 'Login.',
                 templateUrl: 'src/auth/login.html',
                 controller: 'LoginCtrl as vm'
+            })
+            .state('register', {
+                url: '/register',
+                title: 'Register.',
+                templateUrl: 'src/auth/register.html',
+                controller: 'RegisterCtrl as vm'
             });
     }
 
