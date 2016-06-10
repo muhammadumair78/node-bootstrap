@@ -21,7 +21,8 @@
                         controller: 'Shell as vm'
                     },
                     'topNavBar@shell': {
-                        templateUrl: 'src/shell/topNavBar.html'
+                        templateUrl: 'src/shell/topNavBar.html',
+                        controller: 'TopNavBar as vm'
                     },
                     'sideBar@shell': {
                         templateUrl: 'src/shell/sideBar.html',

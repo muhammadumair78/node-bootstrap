@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(db){
+ module.exports= function(db){
   db.connect('mongodb://localhost/super-app');
 
   db.connection.on('connected', function () {

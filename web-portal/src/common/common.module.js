@@ -2,12 +2,11 @@
  * Created By Muhammad Umair Javaid
  */
 
-(function(){
+(function () {
 
-  'use strict';
+    'use strict';
 
-  angular.module('app.common', [
-
-  ]);
+    angular.module('app.common', [
+    ]);
 
 }());

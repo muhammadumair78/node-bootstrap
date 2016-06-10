@@ -13,6 +13,7 @@
     /**
      * Application modules
      **/
+        'app.auth',
         'app.welcome',
         'app.users'
     ]);

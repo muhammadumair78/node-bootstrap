@@ -6,12 +6,14 @@
     <!-- build:css styles/main.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.css"/>
     <!-- endbower -->
     <link rel="stylesheet" href="css/site.css"/>
     <!-- endbuild -->
 </head>
 
 <body>
+<toast></toast>
 <div ui-view></div>
 </body>
 
@@ -26,17 +28,30 @@
 <script src="bower_components/restangular/dist/restangular.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+<script src="bower_components/ngToast/dist/ngToast.js"></script>
 <!-- endbower -->
-<script src="src/core/core.module.js"></script>
-<script src="src/common/common.module.js"></script>
+
 <script src="src/app.module.js"></script>
+
+<script src="src/core/core.module.js"></script>
 <script src="src/core/restangular.config.js"></script>
 <script src="src/core/router.config.js"></script>
 <script src="src/core/httpStatus.constant.js"></script>
+<script src="src/core/app.constant.js"></script>
+<script src="src/core/app.run.js"></script>
+
+<script src="src/common/common.module.js"></script>
+<script src="src/common/toast.factory.js"></script>
 
 <script src="src/shell/shell.module.js"></script>
 <script src="src/shell/shell.controller.js"></script>
 <script src="src/shell/sidebar.controller.js"></script>
+<script src="src/shell/topNavBar.controller.js"></script>
+
+<script src="src/auth/auth.module.js"></script>
+<script src="src/auth/auth.factory.js"></script>
+<script src="src/auth/login.controller.js"></script>
 
 <script src="src/welcome/welcome.module.js"></script>
 <script src="src/welcome/welcome.controller.js"></script>

@@ -25,7 +25,6 @@
         }
 
         function deleteUser(id){
-            console.log("123");
             usersFactory.delete(id).then(function(data){
                 alert(data);
             });

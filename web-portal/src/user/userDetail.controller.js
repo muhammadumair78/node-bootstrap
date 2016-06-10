@@ -21,7 +21,6 @@
             usersFactory.get($stateParams.id).then(function(data){
                 vm.user = data.data;
             });
-
         }
     }
 

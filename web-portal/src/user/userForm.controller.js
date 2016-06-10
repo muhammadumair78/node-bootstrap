@@ -28,7 +28,7 @@
 
         function saveUser(){
             if($stateParams.id){
-                usersFactory.edit($stateParams.id, vm.user).then(function(data){
+                usersFactory.edit(vm.user).then(function(data){
                     $state.go('shell.users');
                 });
             } else {

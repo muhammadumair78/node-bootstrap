@@ -2,33 +2,32 @@
  * Created By Muhammad Umair Javaid
  */
 
-(function(){
+(function () {
 
-  'use strict';
+    'use strict';
 
-  angular.module('app.core')
-    .config(configuration)
-    .run(routingEvents);
+    angular.module('app.core')
+        .config(configuration)
+        .run(routingEvents);
 
-  /* @ngInject */
-  function configuration($urlRouterProvider){
+    /* @ngInject */
+    function configuration($urlRouterProvider) {
+        $urlRouterProvider.otherwise('/welcome');
+    }
 
-    $urlRouterProvider.otherwise('/welcome');
+    /* @ngInject */
+    function routingEvents($rootScope) {
 
-  }
+        //on routing error
+        $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
+            //do some logging and toasting
+        });
 
-  /* @ngInject */
-  function routingEvents($rootScope){
-    //on routing error
-    $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState, fromParams){
-      //do some logging and toasting
-    });
-
-    //on routing error
-    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-      //do some title setting
-      $rootScope.pageTitle = toState.title || 'app';
-    });
-  }
+        //on routing error
+        $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
+            //do some title setting
+            $rootScope.pageTitle = toState.title || 'app';
+        });
+    }
 
 }());

@@ -32,7 +32,7 @@
             return Restangular.one('users', id).get();
         }
 
-        function _edit(id, data) {
+        function _edit(data) {
             return Restangular.one('users', data._id).customPUT(data);
         }
 

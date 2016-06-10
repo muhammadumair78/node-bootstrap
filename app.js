@@ -1,11 +1,10 @@
 ////////////// Require Dependencies //////////
 var express = require('express');
-var path = require('path');
 var logger = require('morgan');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var q = require("q");
+var jwt = require('jsonwebtoken'); // used to create, sign, and verify toke
 //-------------------------------------------//
 
 ////////////// Initiate Application //////////
@@ -28,7 +27,6 @@ app.use(bodyParser.urlencoded({
     extended: true,
     limit: '50mb'
 }));
-app.use(cookieParser());
 app.use('/', express.static('web-portal'));
 app.use('/api', router);
 //-------------------------------------------//
@@ -36,8 +34,8 @@ app.use('/api', router);
 ////////////// Application Files ////////////
 require('./config')(app, mongoose);
 require('./app/models')(app, mongoose);
-require('./app/services')(app, q);
-require('./app/controllers')(app, q);
+require('./app/services')(app, q, jwt);
+require('./app/controllers')(app, q, jwt);
 require('./app/routes')(app, router);
 //-------------------------------------------//
 

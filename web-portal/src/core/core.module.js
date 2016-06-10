@@ -2,13 +2,15 @@
  * Created By Muhammad Umair Javaid
  */
 
-(function(){
+(function () {
 
-  'use strict';
+    'use strict';
 
-  angular.module('app.core', [
-    'ui.router',
-    'restangular'
-  ]);
+    angular.module('app.core', [
+        'ui.router',
+        'restangular',
+        'angular-storage',
+        'ngToast'
+    ]);
 
 }());
